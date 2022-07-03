@@ -1,0 +1,13 @@
+import navigationSwitch from "./modules/switch.js";
+import addBtnEvent from "./modules/addBtnEvent.js";
+import loadLocalData from "./modules/localStorage.js";
+export const titleInput = document.querySelector('.title-input');
+export const authorInput = document.querySelector('.author-input');
+export const addBtn = document.querySelector('.add-input');
+export const listBtn = document.querySelector('.list-btn');
+export const bookAddBtn = document.querySelector('.add-btn');
+export const contactBtn = document.querySelector('.contact-btn');
+export let bookArr = [];
+addBtnEvent();
+loadLocalData();
+navigationSwitch();
