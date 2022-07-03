@@ -1,5 +1,6 @@
-import { DateTime } from '../luxon.js';
+import { DateTime } from './luxon.js';
 import Book from './modules/bookAddRemove.js';
+
 export const titleInput = document.querySelector('.title-input');
 export const authorInput = document.querySelector('.author-input');
 export const addBtn = document.querySelector('.add-input');
@@ -16,7 +17,9 @@ timeElement.textContent = `${date}, ${time}`;
 
 addBtn.addEventListener('click', () => {
   if (titleInput.value && authorInput.value) {
-    const bookItem = new Book(authorInput.value + Book.bookArr.length, '\'' + titleInput.value + '\'', ' by ' + authorInput.value);
+    /* eslint-disable */
+    const bookItem = new Book(authorInput.value + Book.bookArr.length, '\"' + titleInput.value + '\"', ' by ' + authorInput.value);
+    /* eslint-enable */
     bookItem.add();
     Book.bookArr.push(bookItem);
     localStorage.setItem('books', JSON.stringify(Book.bookArr));
