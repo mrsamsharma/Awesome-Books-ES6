@@ -1,4 +1,4 @@
-import bookArr from "../index.js";
+export let bookArr = [];
 class Book {
   constructor(id, title, author) {
     this.id = id;
@@ -33,6 +33,14 @@ class Book {
     localStorage.setItem('books', JSON.stringify(bookArr));
     e.target.parentElement.remove();
   }
+}
+
+if ('books' in localStorage) {
+  bookArr = JSON.parse(localStorage.books);
+  bookArr.forEach((each) => {
+    const newData = new Book(each.id, each.title, each.author);
+    newData.add();
+  });
 }
 
 export default Book;

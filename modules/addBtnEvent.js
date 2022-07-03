@@ -1,5 +1,6 @@
 
-import {bookArr, addBtn, titleInput, authorInput} from "../index.js";
+import  { addBtn, titleInput, authorInput } from "../index.js";
+import { bookArr } from "./bookAddRemove.js";
 import Book from "./bookAddRemove.js";
 const addBtnEvent = () => {addBtn.addEventListener('click', () => {
   if (titleInput.value && authorInput.value) {
