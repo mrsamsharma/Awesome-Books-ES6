@@ -1,10 +1,11 @@
-export let bookArr = [];
 class Book {
   constructor(id, title, author) {
     this.id = id;
     this.title = title;
     this.author = author;
   }
+
+  static bookArr = [];
 
   add() {
     const book = document.createElement('div');
@@ -29,15 +30,15 @@ class Book {
   }
 
   static remove(e) {
-    bookArr = bookArr.filter((each) => e.target.parentElement.id !== each.id);
-    localStorage.setItem('books', JSON.stringify(bookArr));
+    Book.bookArr = Book.bookArr.filter((each) => e.target.parentElement.id !== each.id);
+    localStorage.setItem('books', JSON.stringify(Book.bookArr));
     e.target.parentElement.remove();
   }
 }
 
 if ('books' in localStorage) {
-  bookArr = JSON.parse(localStorage.books);
-  bookArr.forEach((each) => {
+  Book.bookArr = JSON.parse(localStorage.books);
+  Book.bookArr.forEach((each) => {
     const newData = new Book(each.id, each.title, each.author);
     newData.add();
   });

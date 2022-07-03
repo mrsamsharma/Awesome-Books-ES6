@@ -1,17 +1,17 @@
+import { addBtn, titleInput, authorInput } from '../index.js';
+import Book from './bookAddRemove.js';
 
-import  { addBtn, titleInput, authorInput } from "../index.js";
-import { bookArr } from "./bookAddRemove.js";
-import Book from "./bookAddRemove.js";
-const addBtnEvent = () => {addBtn.addEventListener('click', () => {
+const addBtnEvent = () => { 
+  addBtn.addEventListener('click', () => {
   if (titleInput.value && authorInput.value) {
   /* eslint-disable */
-  const bookItem = new Book(authorInput.value + bookArr.length, '\"' + titleInput.value + '\"', ' by ' + authorInput.value);
+  const bookItem = new Book(authorInput.value + Book.bookArr.length, '\"' + titleInput.value + '\"', ' by ' + authorInput.value);
   /* eslint-enable */
     bookItem.add();
-    bookArr.push(bookItem);
-    localStorage.setItem('books', JSON.stringify(bookArr));
+    Book.bookArr.push(bookItem);
+    localStorage.setItem('books', JSON.stringify(Book.bookArr));
   }
 });
-}
+};
 
-export default addBtnEvent
+export default addBtnEvent;
